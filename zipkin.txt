@@ -1,0 +1,37 @@
+sleutha nd zipkin
+
+used for tracing purpose in distributed systems
+How Spring Cloud Sleuth Works
+Spring Cloud Sleuth operates by assigning a unique trace and span ID to each incoming request.
+
+Trace ID: A unique ID assigned to each request that enters the system, which remains constant as the request travels through various services.
+Span ID: Represents a basic unit of work, or a specific operation within a system, like a REST API call to a microservice. A single trace can have multiple spans as a request moves through various services and operations.
+
+zipkin
+It provides necessary tooling to monitor and analyze the journey of requests and responses across a system.
+
+Architecture of Zipkin
+Zipkin is composed of four main components:
+
+Collector: Gathers timing data from application services. It can collect data through various means, including HTTP, Kafka, or RabbitMQ.
+Storage: Once the data is collected, it is stored in a backend storage system. Zipkin supports multiple storage options, such as In-Memory, Elasticsearch, Cassandra, and MySQL.
+Search: Offers robust search functionality, allowing developers to query the stored tracing data based on various parameters like service name, trace ID, or time frame.
+API and Web UI: Provides a RESTful API and a Web UI for accessing the stored tracing data, visualizing trace flows, and analyzing timing data.
+
+How Zipkin Works
+Zipkin’s operation is seamless and automatic. Here’s how it works:
+
+Services instrumented with Zipkin send timing data to the Zipkin Collector. The data includes information like the timestamp, annotation, service name, trace, and span IDs.
+The Collector processes the data and stores it in the chosen backend storage.
+Developers and teams can use the Web UI or API to query the stored data, visualize traces, and understand the interactions between different services in the architecture.
+Visualization with Zipkin
+One of Zipkin’s most valuable features is its powerful visualization capabilities. The Web UI allows developers to:
+
+Trace Visualization: See the path that requests take through the various services in the system.
+Latency Analysis: Analyze the time taken by each service to process a request, helping identify services that are potential performance bottlenecks.
+Dependency Analysis: View the dependency graph between different services, providing insights into the relationships and interactions between various services in the system.
+
+Integration with Spring Cloud Sleuth
+Zipkin’s seamless integration with Spring Cloud Sleuth allows developers to correlate tracing data with application logs, providing a comprehensive view of the request flow, interactions, and performance across different services.
+
+By leveraging the capabilities of Zipkin, developers and teams can significantly enhance their ability to monitor, analyze, and optimize their microservices architectures, leading to more robust, efficient, and performant systems.
